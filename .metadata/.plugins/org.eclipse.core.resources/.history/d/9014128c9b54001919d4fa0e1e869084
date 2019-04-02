@@ -1,0 +1,129 @@
+package br.com.abc.maven.graficos;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+public class ContatoDao {
+	// a conexão com o banco de dados
+	private Connection connection;
+
+	public ContatoDao() throws Exception {
+		this.connection = new ConnectionFactory().getConnection();
+	}
+
+	public void adiciona(cursosrealizados cursos, funcionarios funcionarios ) {
+		String sql = "insert into cursosrealizados " + "(nomeCurso,nomeCurso,tempoDeCurso, dataRealizacao)" + " values (?,?,?,?)";
+		String sq2 = "insert into funcionarios " + "(nomeFuncionario, matricula)" + " values (?,?)";
+		
+		try {
+			// prepared statement para inserção
+			PreparedStatement stmt1 = connection.prepareStatement(sql);
+			PreparedStatement stmt2 = connection.prepareStatement(sq2);
+			
+
+			// seta os valores do funcionario
+			Object matriculaFunc = funcionarios.getMatricula();
+			
+			stmt2.setString(1, funcionarios.getNomeFuncionario());			
+			stmt2.setString(2,matriculaFunc.toString());	
+			
+			//seta os valores dos cursos realizados			
+			Object matricula, tempoCurso;
+			
+			matricula = cursos.getMatricula();
+			tempoCurso = cursos.getTempoDeCurso();
+			
+			stmt1.setString(3, matricula.toString());
+			stmt1.setString(4, cursos.getNomeCurso());
+			stmt1.setString(4, tempoCurso.toString());
+			
+			// executa
+			
+			stmt1.execute();
+			stmt1.close();
+			stmt2.execute();
+			stmt2.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public List<cursosrealizados> getListaCursos() {
+		try {
+			List<cursosrealizados> cursos = new ArrayList<cursosrealizados>();
+			
+			PreparedStatement stmt2 = this.connection.prepareStatement("select * from cursosrealizados");
+			
+			ResultSet rs2 = stmt2.executeQuery();
+
+			while (rs2.next()) {		
+				
+				    //criando o objeto cursos realizados	
+				
+				    cursosrealizados cursosFunc = new cursosrealizados();					
+				    cursosFunc.setId(rs2.getLong("tempoDeCurso"));	
+				    cursosFunc.setId(rs2.getLong("tempoDeCurso"));
+				    cursosFunc.setTempoDeCurso(rs2.getInt("tempoDeCurso"));
+	
+					// adicionando o objeto à lista
+				    cursos.add(cursosFunc);				
+				
+			}
+			
+			
+			rs2.close();
+			stmt2.close();
+			return cursos;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public List<funcionarios> getListaFunc() {
+		try {
+			List<funcionarios> funcionario = new ArrayList<funcionarios>();
+			
+			PreparedStatement stmt1 = this.connection.prepareStatement("select * from funcionarios");
+			
+			ResultSet rs1 = stmt1.executeQuery();
+			ResultSet rs2 = stmt1.executeQuery();
+
+			while (rs1.next()) {		
+				
+				    //criando o objeto funcionario	
+				
+				    cursosrealizados funcionario = new cursosrealizados();					
+					funcionario.setNomeFuncionario(rs1.getString("nomeFuncionario"));	
+					funcionario.setNomeCurso(rs1.getString("nomeCurso"));
+					funcionario.setTempoDeCurso(rs1.getInt("tempoDeCurso"));
+					
+					cursosrealizados cursosrealizados = new cursosrealizados();
+					cursosrealizados.setNomeFuncionario(rs1.getString("nomeFuncionario"));
+	
+					// montando a data através do Calendar
+					Calendar data = Calendar.getInstance();
+					data.setTime(rs1.getDate("dataRealizacao"));
+					funcionario.setDataRealizacao(data);
+	
+					// adicionando o objeto à lista
+					contatos.add(funcionario);				
+				
+			}
+			
+			
+			rs1.close();
+			stmt1.close();
+			return contatos;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	
+}

@@ -1,0 +1,80 @@
+package br.com.abc.maven.graficos;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+public class ContatoDao {
+	// a conexão com o banco de dados
+	private Connection connection;
+
+	public ContatoDao() throws Exception {
+		this.connection = new ConnectionFactory().getConnection();
+	}
+
+	public void adiciona(cursosRealizados contato) {
+		String sql = "insert into cursosRealizados " + "(nomeFuncionario,nomeCurso,tempoDeCurso,dataRealizacao)" + " values (?,?,?,?)";
+
+		try {
+			// prepared statement para inserção
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			// seta os valores
+			stmt.setString(1,contato.getNomeFuncionario());
+			stmt.setString(2,contato.getNomeCurso());
+			stmt.setInt(3,contato.getTempoDeCurso());			
+			stmt.setDate(4,new Date(contato.getDataRealizacao().getTimeInMillis()));
+			stmt.setLong(5, contato.getId());
+			
+			// executa
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public List<cursosRealizados> getLista() {
+		try {
+			List<cursosRealizados> contatos = new ArrayList<cursosRealizados>();
+			
+			PreparedStatement stmt1 = this.connection.prepareStatement("select * from funcionarios");
+			PreparedStatement stmt2 = this.connection.prepareStatement("select * from cursosrealizados");
+			
+			ResultSet rs1 = stmt1.executeQuery();
+			ResultSet rs2 = stmt1.executeQuery();
+
+			while (rs1.next()) {		
+				
+				    //criando o objeto funcionario	
+				
+					cursosRealizados funcionario = new cursosRealizados();
+					funcionario.setNomeFuncionario(rs1.getString("nomeFuncionario"));	
+					funcionario.setNomeCurso(rs1.getString("nomeCurso"));
+					funcionario.setTempoDeCurso(rs1.getInt("tempoDeCurso"));
+					//contato.setDataRealizacao(rs.getString("dataRealizacao"));
+	
+					// montando a data através do Calendar
+					Calendar data = Calendar.getInstance();
+					data.setTime(rs1.getDate("dataRealizacao"));
+					funcionario.setDataRealizacao(data);
+	
+					// adicionando o objeto à lista
+					contatos.add(funcionario);				
+				
+			}
+			
+			
+			rs1.close();
+			stmt1.close();
+			return contatos;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+}

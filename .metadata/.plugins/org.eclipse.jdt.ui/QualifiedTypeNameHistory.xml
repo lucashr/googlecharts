@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="br.com.abc.maven.graficos.ConnectionFactory"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="antlr.collections.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.codehaus.plexus.component.configurator.converters.ConfigurationConverter"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="br.com.abc.maven.graficos.cursosrealizados"/>
+<fullyQualifiedTypeName name="br.com.abc.maven.graficos.funcionariosDAO"/>
+<fullyQualifiedTypeName name="br.com.abc.maven.graficos.funcionarios"/>
+</qualifiedTypeNameHistroy>

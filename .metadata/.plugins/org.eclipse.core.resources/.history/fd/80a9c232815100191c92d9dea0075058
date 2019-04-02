@@ -1,0 +1,27 @@
+package graficos;
+
+import java.util.Calendar;
+
+import br.com.abc.maven.graficos.cursosRealizados;
+import br.com.abc.maven.graficos.ContatoDao;
+
+public class TestaInsere {
+
+	public static void main(String[] args) throws Exception {
+		// pronto para gravar
+	       cursosRealizados contato = new cursosRealizados();
+	       contato.setNome("Sonysta veadinho");
+	       contato.setEmail("sonysoueu@rafael.com.br");
+	       contato.setEndereco("R. embu guacu 666 cj157");
+	       contato.setDataNascimento(Calendar.getInstance());
+
+	       // grave nessa conexão!!!
+	       ContatoDao dao = new ContatoDao();
+
+	       // método elegante
+	       dao.adiciona(contato);
+
+	       System.out.println("Gravado!");
+	}
+
+}

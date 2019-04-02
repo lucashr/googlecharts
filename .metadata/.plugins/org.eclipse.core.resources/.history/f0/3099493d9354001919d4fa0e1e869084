@@ -1,0 +1,53 @@
+package br.com.abc.maven.graficos;
+
+import java.util.Calendar;
+
+public class funcionarios {
+	
+	private String nomeFuncionario;
+	private int matricula;
+	
+	public int getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}	
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}	
+	
+	public String getNomeCurso() {
+		return nomeCurso;
+	}
+	
+	public void setNomeCurso(String nomeCurso) {
+		this.nomeCurso = nomeCurso;
+	}
+	
+	public int getTempoDeCurso() {
+		return tempoDeCurso;
+	}
+	
+	public void setTempoDeCurso(int tempoDeCurso) {
+		this.tempoDeCurso = tempoDeCurso;
+	}
+	
+	public static Calendar getDataRealizacao() {
+		return dataRealizacao;
+	}
+	
+	public void setDataRealizacao(Calendar dataRealizacao) {
+		this.dataRealizacao = dataRealizacao;
+	}
+	
+	
+	
+	
+}

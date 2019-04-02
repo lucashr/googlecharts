@@ -1,0 +1,69 @@
+package graficos;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.abc.maven.graficos.ContatoDao;
+import br.com.abc.maven.graficos.cursosRealizados;
+
+public class TestaLista {
+	
+	public static void main(String[] args) throws Exception {
+		ContatoDao dao = new ContatoDao();
+		List<cursosRealizados> contatos = dao.getLista();
+		ArrayList<String> dadosLinhas = new ArrayList<String>();
+		ArrayList<String> dadosColunas = new ArrayList<String>();
+		
+	   Object tempoCurso, dataRealizacao;
+
+		for (cursosRealizados contato : contatos) {
+			  dadosColunas.add(contato.getNomeFuncionario());			  
+			  //dadosColunas.add(contato.getNomeCurso());
+			  //tempoCurso = contato.getTempoDeCurso();
+			  //dadosColunas.add(tempoCurso.toString());
+			 
+			  dataRealizacao = contato.getDataRealizacao().getTime();
+			  
+			  SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+			  String dataFormatada = formato.format(dataRealizacao);
+	          
+	      }
+		
+		criaColuna(dadosColunas);		
+		 
+//		System.out.println("Colunas:\n");
+//        System.out.println(dadosColunas);
+
+	}
+
+	private static void criaColuna(ArrayList<String> colun) {
+		System.out.println(colun.toString());
+		List<String> coluna = new ArrayList<String>();
+		
+		//coluna.add("\"label\":");
+		
+		for (String var : colun) {		
+			int i = 0;
+			
+			if(i == 0){
+				coluna.add("{\"label\":" + var);
+			}
+			coluna.add(var);
+			
+			i++;
+		}		
+		System.out.println("Depois");
+		System.out.println(coluna.toString());
+	}
+
+}
+
+
+//
+//"cols": [
+//         {"label": "Nome Funcionario", "type":"string"},
+//         {"label": "Tempo de estudo", "type":"number"}
+// ],
+
+

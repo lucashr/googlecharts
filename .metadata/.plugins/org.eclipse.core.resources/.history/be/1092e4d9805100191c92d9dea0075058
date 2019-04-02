@@ -1,0 +1,49 @@
+package br.com.abc.maven.graficos;
+
+import java.util.Calendar;
+
+public class cursosRealizados {
+	
+	private Long id;
+	private String nomeCurso;
+	private String nomeFuncionario;
+	private int tempoDeCurso;
+	private Calendar dataRealizacao;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}	
+	
+	public String getNomeFuncionario() {
+		return nomeFuncionario;
+	}
+	public void setNomeFuncionario(String nomeFuncionario) {
+		this.nomeFuncionario = nomeFuncionario;
+	}
+	
+	public String getNomeCurso() {
+		return nomeCurso;
+	}
+	public void setNomeCurso(String nomeCurso) {
+		this.nomeCurso = nomeCurso;
+	}
+	public int getTempoDeCurso() {
+		return tempoDeCurso;
+	}
+	public void setTempoDeCurso(int tempoDeCurso) {
+		this.tempoDeCurso = tempoDeCurso;
+	}
+	public Calendar getDataRealizacao() {
+		return dataRealizacao;
+	}
+	public void setDataRealizacao(Calendar dataRealizacao) {
+		this.dataRealizacao = dataRealizacao;
+	}
+	
+	
+	
+	
+}

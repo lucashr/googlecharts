@@ -1,0 +1,32 @@
+package br.com.abc.maven.graficos;
+
+import java.util.Calendar;
+
+public class Contato {
+	private String nomeCurso;
+	private String tempoDeCurso;
+	private Calendar dataRealizacao;
+	
+	public String getNomeCurso() {
+		return nomeCurso;
+	}
+	public void setNomeCurso(String nomeCurso) {
+		this.nomeCurso = nomeCurso;
+	}
+	public String getTempoDeCurso() {
+		return tempoDeCurso;
+	}
+	public void setTempoDeCurso(String tempoDeCurso) {
+		this.tempoDeCurso = tempoDeCurso;
+	}
+	public Calendar getDataRealizacao() {
+		return dataRealizacao;
+	}
+	public void setDataRealizacao(Calendar dataRealizacao) {
+		this.dataRealizacao = dataRealizacao;
+	}
+	
+	
+	
+	
+}

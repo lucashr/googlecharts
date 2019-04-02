@@ -1,0 +1,15 @@
+1554131896609	Rename local variable 'rs'
+1554132103951	Rename local variable 'contato'
+1554132610859	Copy compilation unit
+1554133083191	Rename local variable 'stmt'
+1554133355625	Rename type 'cursosRealizados'
+1554133770254	Rename local variable 'contato'
+1554134305085	Rename method 'getLista'
+1554136670598	Rename local variable 'contatos'
+1554137543883	Rename local variable 'cd'
+1554137811114	Rename local variable 'usuario'
+1554137877375	Rename local variable 'contato'
+1554146242272	Rename type 'ContatoDao'
+1554146276619	Copy compilation unit
+1554146525518	Rename local variable 'cursos'
+1554146588774	Rename local variable 'rs2'

@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\lucas.rafael\Desktop\Curso google Chart - Alura\Teste com BD-charts\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1265549061.index
+1601163248.index
+1120926034.index
+2351333093.index
+565840480.index
+1604326891.index

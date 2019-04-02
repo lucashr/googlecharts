@@ -1,0 +1,65 @@
+package graficos;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONObject;
+
+import br.com.abc.maven.graficos.cursosrealizados;
+import br.com.abc.maven.graficos.cursosrealizadosDAO;
+import br.com.abc.maven.graficos.funcionarios;
+import br.com.abc.maven.graficos.funcionariosDAO;
+
+public class ExemploJSONArray {
+
+	public static void main(String[] args) throws Exception {
+		criaObjJson();
+	}
+
+	private static void criaObjJson() throws Exception {
+
+		cursosrealizadosDAO cursosDao = new cursosrealizadosDAO();
+		funcionariosDAO funcDao = new funcionariosDAO();
+		
+		List<cursosrealizados> lc = dao.getListaCursos();
+		
+		List<funcionarios> lf = dao.ge();
+
+		List<String> cursosUsuario = new ArrayList<String>();         
+		
+		for (cursosrealizados usuarioCursos : lc) {
+			System.out.println(usuarioCursos.getMatricula());
+			
+			if(usuarioCursos.getMatricula() == 1234) {
+				Object tempCurso, id, matriculausuario;				
+				tempCurso = usuarioCursos.getTempoDeCurso();
+				matriculausuario = usuarioCursos.getMatricula();
+				id = usuarioCursos.getId();
+				
+				cursosUsuario.add(matriculausuario.toString());
+				cursosUsuario.add(usuarioCursos.getNomeCurso());
+				cursosUsuario.add(tempCurso.toString());
+				cursosUsuario.add(usuarioCursos.getDataRealizacao());
+				cursosUsuario.add(usuarioCursos.getId().toString());
+						
+				break;
+			}
+		}
+		
+		//System.out.println(cursosUsuario);	
+
+		JSONObject jsonOne = new JSONObject();
+
+//		jsonOne.put("nome funcionario", pOne.getNomeFuncionario());
+//		jsonOne.put("nome curso", pOne.getNomeCurso());
+//		jsonOne.put("tempo curso", pOne.getTempoDeCurso());
+//		jsonOne.put("data curso", "2019-04-10");
+//
+//		dataRealizacao = cursosRealizados.getDataRealizacao().getTime();
+//
+//		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+//		String dataFormatada = formato.format(dataRealizacao);
+
+	}
+
+}

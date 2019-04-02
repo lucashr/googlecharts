@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\Users\lucas.rafael\Desktop\Curso google Chart - Alura\Teste com BD-charts\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3432855093.index
+\graficosJson\src\main\resources
+C:\Users\lucas.rafael\Desktop\Curso google Chart - Alura\Teste com BD-charts\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1272497184.index
+\graficos\src\main\resources
